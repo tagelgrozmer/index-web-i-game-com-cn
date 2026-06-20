@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一竞技 · 轻量导航介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* ---------- 顶部导航 ---------- */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 0.9rem 1.8rem;
+            border-radius: 48px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e4e9f0;
+            margin-bottom: 2.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #1e2a3a;
+            letter-spacing: 0.3px;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            background: #1e2a3a;
+            border-radius: 8px 2px 8px 2px;
+            margin-right: 0.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3e4a5c;
+            font-size: 0.95rem;
+            font-weight: 450;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #111;
+            border-bottom-color: #1e2a3a;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background: #ffffff;
+            padding: 2.6rem 2.4rem;
+            border-radius: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.9rem;
+            color: #0f1a2b;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #3b4a5e;
+            max-width: 720px;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eef1f6;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2c3b4f;
+            border: 1px solid #dce2ec;
+        }
+
+        /* ---------- 卡片通用 ---------- */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2.4rem 0 1.2rem 0;
+            color: #101e2e;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #1e2a3a;
+            padding-left: 0.9rem;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 1.6rem 1.8rem 1.8rem;
+            flex: 1 1 260px;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 520;
+            margin-bottom: 0.6rem;
+            color: #132232;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 .emoji-place {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .card p {
+            font-size: 0.96rem;
+            color: #3c4d63;
+        }
+
+        .card ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+            color: #2d4057;
+            font-size: 0.93rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ---------- 说明 / FAQ 摘要 ---------- */
+        .note-section {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 2rem;
+            margin-top: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .note-section h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #0d1c2c;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 510;
+            color: #1d2e41;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #3f536b;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #1e2a3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+        }
+
+        .faq-a a:hover {
+            background: #eef1f6;
+        }
+
+        /* ---------- 底部 ---------- */
+        .footer-note {
+            text-align: center;
+            margin-top: 2.8rem;
+            padding: 0.8rem 0 0.2rem;
+            color: #5f6e82;
+            font-size: 0.85rem;
+            border-top: 1px solid #dce2ec;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 700px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem 1.4rem;
+                border-radius: 30px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 1.2rem;
+                margin-top: 0.3rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                flex: 1 1 100%;
+                padding: 1.4rem;
+            }
+
+            .note-section {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">
+            <span class="logo-icon"></span>
+            一竞技·导航
+        </div>
+        <div class="nav-links">
+            <a href="#intro">站点介绍</a>
+            <a href="#scenes">常见场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero 核心介绍 -->
+    <div class="hero" id="intro">
+        <h1>一竞技 · 站点概要</h1>
+        <p><strong>一竞技</strong> 是一个面向竞技资讯与信息整合的轻量平台，致力于为关注电子竞技、体育竞猜及赛事数据的用户提供结构化的信息参考。平台内容围绕赛事动态、规则解读及数据索引展开，不涉及任何直接投注或实时博彩。</p>
+        <p>网站以信息透明与可信度为出发点，所有内容均基于公开赛事信息与行业通用规则进行整理。用户可通过 <a href="https://zh-yijinji.com" style="color:#1e2a3a; text-decoration: underline; text-underline-offset: 3px;">一竞技</a> 获取相关赛事背景、参赛队伍资料以及竞技项目的基础说明，从而辅助自身判断。</p>
+        <span class="tagline">⚡ 信息索引 · 赛事百科 · 规则参考</span>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="scenes">常见使用场景</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3><span class="emoji-place">📋</span> 赛事信息查阅</h3>
+            <p>了解近期主要电竞赛事的赛程、晋级规则及战队背景。平台提供结构化的赛事档案，帮助用户快速建立对特定比赛的基础认知。</p>
+            <ul>
+                <li>赛程与对阵表概览</li>
+                <li>战队历史数据引用</li>
+                <li>版本更新与规则备注</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span class="emoji-place">📊</span> 数据参考与比对</h3>
+            <p>针对不同竞技项目，提供关键数据维度（如胜率、地图偏好、选手数据）的横向参考，所有数据均来自公开赛事统计，不包含个人预测成分。</p>
+            <ul>
+                <li>基础数据表与趋势图</li>
+                <li>多赛季数据对比</li>
+                <li>术语与指标说明</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span class="emoji-place">🔍</span> 规则与百科查询</h3>
+            <p>汇集主流竞技项目的通用规则、裁判标准及常见争议判例，方便用户在不熟悉特定项目时快速理解比赛逻辑。</p>
+            <ul>
+                <li>项目规则精简版</li>
+                <li>判例与 FAQ 整理</li>
+                <li>版本平衡性调整摘要</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见说明 + FAQ 摘要（可信角度） -->
+    <div class="note-section" id="faq">
+        <h2>关于可信度与内容边界</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">🔹 信息来源于哪里？</div>
+            <div class="faq-a">所有内容均整理自赛事官方发布、公开数据接口及行业通用知识库。平台不生产原始数据，而是提供二次梳理与索引，并明确标注引用来源（如适用）。用户可通过 <a href="https://zh-yijinji.com">一竞技</a> 直接浏览结构化信息。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">🔹 是否包含投注或博彩引导？</div>
+            <div class="faq-a">不包含。本站定位为信息介绍与知识参考，不提供任何形式的赔率、投注链接或博彩建议。内容仅用于帮助用户理解竞技项目背景。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">🔹 平台更新频率如何？</div>
+            <div class="faq-a">根据主要赛事的赛季节奏进行内容更新。重大赛事期间会同步赛程与规则变更，非赛季期则维护百科类内容。无实时流或自动推送。</div>
+        </div>
+
+        <div class="faq-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+            <div class="faq-q">🔹 如何看待信息准确性？</div>
+            <div class="faq-a">平台尽力保证内容与官方信息一致，但建议用户交叉验证关键数据。如发现差异，可通过站点公开渠道反馈，平台会定期复核修正。核心宗旨是提供可靠的知识索引，而非绝对权威。</div>
+        </div>
+    </div>
+
+    <!-- 一个自然的嵌入链接句子（确保 a 标签可见文本严格为一竞技） -->
+    <p style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 0.8rem 1.5rem; margin-bottom: 0.8rem; font-size: 0.95rem; color: #2c4059;">
+        💡 如果你对竞技赛事的知识体系感兴趣，可以直接通过 <a href="https://zh-yijinji.com" style="color:#1e2a3a; font-weight: 500; text-decoration: underline; text-underline-offset: 2px;">一竞技</a> 浏览整理好的信息，无需跳转第三方站点。
+    </p>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        基于公开信息整理 · 仅供知识参考 · 内容持续修订中
+    </div>
+
+</div>
+</body>
+</html>
